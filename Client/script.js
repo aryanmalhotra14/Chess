@@ -315,13 +315,9 @@ class PieceMovements {
 			};
 			if (!isValidCell(nextPos.x, nextPos.y)) continue;
 
-			if (pieceMat[nextPos.y][nextPos.x] == ally) break;
-			else if(pieceMat[nextPos.y][nextPos.x] == enemy) {
-				moves.push(new CellIndicator('capture', nextPos.x, nextPos.y));
-				break;
-			}
-			else {
-				moves.push(new CellIndicator('move' ,nextPos.x, nextPos.y));
+			if (pieceMat[nextPos.y][nextPos.x] == ally || pieceMat[nextPos.y][nextPos.x] == enemy) break;
+			else if(pieceMat[nextPos.y][nextPos.x] == 0) {
+				moves.push(new CellIndicator('move', nextPos.x, nextPos.y));
 			}
 		}
 
